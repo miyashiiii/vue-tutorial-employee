@@ -16,7 +16,7 @@ import EmployeeTable from '@/components/EmployeeTable.vue'
 import EmployeeForm from "@/components/EmployeeForm";
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     EmployeeForm,
     EmployeeTable,
