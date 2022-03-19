@@ -1,30 +1,23 @@
 <template>
   <div id="employee-form">
-    <form @submit.prevent="handleSubmit">
-      <label>Employee name</label>
-      <input
+    <v-form>
+      <v-text-field
           ref="first"
-          type="text"
-          :class="{ 'has-error': submitting && invalidName }"
           v-model="employee.name"
+          label="Employee name"
+          required
+          :rules="nameRules"
           @focus="clearStatus"
-          @keypress="clearStatus"
-      />
-      <label>Employee Email</label>
-      <div id="form-email">
+      ></v-text-field>
+      <v-text-field
+          v-model="employee.email"
+          label="Employee E-mail"
+          required
+          :rules="emailRules"
+      ></v-text-field>
+      <v-btn @click="submit"> Add</v-btn>
 
-        <input
-            type="text"
-            :class="{ 'has-error': submitting && invalidEmail }"
-            v-model="employee.email"
-            @focus="clearStatus"
-        />
-        <p v-if="error && submitting" class="error-message">❗Please fill out all required fields</p>
-        <p v-if="success" class="success-message">✅ Employee successfully added</p>
-        <p>{{ mes }}</p>
-      </div>
-      <button>Add Employee</button>
-    </form>
+    </v-form>
   </div>
 </template>
 
@@ -40,11 +33,20 @@ export default {
       employee: {
         name: '',
         email: '',
-      }
+      },
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+
     }
   },
   methods: {
-    handleSubmit() {
+    submit() {
       this.submitting = true
       this.clearStatus()
 
@@ -81,23 +83,4 @@ export default {
 </script>
 
 <style scoped>
-form {
-  margin-bottom: 2rem;
-}
-
-[class*='-message'] {
-  font-weight: 500;
-}
-
-.error-message {
-  color: #d33c40;
-}
-
-.success-message {
-  color: #32a95d;
-}
-
-#form-email {
-  height: 6rem;
-}
 </style>
