@@ -11,14 +11,18 @@
       </thead>
       <tbody>
       <tr v-for="employee in employees" :key="employee.id">
-        <td v-if="editingID === employee.id">
-          <input type="text" v-model="employee.name"/>
+        <td id="employee-name">
+          <div v-if="editingID === employee.id">
+            <input type="text" v-model="employee.name"/>
+          </div>
+          <div v-else> {{ employee.name }}</div>
         </td>
-        <td v-else>{{ employee.name }}</td>
-        <td v-if="editingID === employee.id">
-          <input type="text" v-model="employee.email"/>
+        <td id="employee-email">
+          <div v-if="editingID === employee.id">
+            <input type="text" v-model="employee.email"/>
+          </div>
+          <div v-else>{{ employee.email }}</div>
         </td>
-        <td v-else>{{ employee.email }}</td>
         <td v-if="editingID === employee.id">
           <button @click="editEmployee(employee)">Save</button>
           <button class="muted-button" @click="editingID = null">Cancel</button>
@@ -63,4 +67,18 @@ button {
   margin: 0 0.5rem 0 0;
 }
 
+tbody tr {
+  height: 4.5rem
+}
+
+tbody #employee-name {
+  width: 13rem
+}
+
+tbody #employee-email {
+  width: 13rem
+}
+tbody input{
+  width:10rem
+}
 </style>
