@@ -92,13 +92,13 @@ export default {
       editingID: null,
       headers: [
         {
-          text: 'name',
+          text: '氏名',
           align: 'start',
           sortable: false,
           value: 'name',
         },
-        {text: 'email', value: 'email'},
-        {text: 'Actions', value: 'actions', sortable: false},
+        {text: 'メールアドレス', value: 'email'},
+        {text: '操作', value: 'actions', sortable: false},
 
       ],
     }

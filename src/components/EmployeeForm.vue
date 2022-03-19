@@ -4,18 +4,18 @@
       <v-text-field
           ref="first"
           v-model="employee.name"
-          label="Employee name"
+          label="氏名"
           required
           :rules="nameRules"
           @focus="clearStatus"
       ></v-text-field>
       <v-text-field
           v-model="employee.email"
-          label="Employee E-mail"
+          label="メールアドレス"
           required
           :rules="emailRules"
       ></v-text-field>
-      <v-btn @click="submit"> Add</v-btn>
+      <v-btn @click="submit"> 追加</v-btn>
 
     </v-form>
   </div>

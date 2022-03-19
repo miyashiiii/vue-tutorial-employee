@@ -2,7 +2,7 @@
   <v-app id="app">
     <v-app-bar max-height="4rem">
       <v-container>
-        <p class="text-sm-h5 my-5">Employees list </p>
+        <p class="text-sm-h5 my-5">従業員名簿</p>
       </v-container>
     </v-app-bar>
     <v-container>
@@ -31,20 +31,19 @@ export default {
     return {
       employees: [
         {
-          id: 1,
-          name: 'Richard Hendricks',
-          email: 'richard@piedpiper.com',
+          name: '山田 剛',
+          email: 'yamada@piedpiper.com',
         },
         {
           id: 2,
-          name: 'Bertram Gilfoyle',
-          email: 'gilfoyle@piedpiper.com',
+          name: '高橋 あかり',
+          email: 'takahashi@piedpiper.com',
         },
         {
           id: 3,
-          name: 'Dinesh Chugtai',
-          email: 'dinesh@piedpiper.com',
-        },
+          name: '斎藤 陽平',
+          email: 'saito@piedpiper.com',
+        }
       ],
     }
   },
